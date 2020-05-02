@@ -14,7 +14,7 @@
 
             // Check if item list is undefined or empty
             if (!$scope.myLunchDishes) {
-                $scope.message = 'Please enter data first';
+                showEmptyMessage();
             }
             else {
                 var lunchDishArray = $scope.myLunchDishes.split(',');
@@ -22,13 +22,21 @@
                 lunchDishArray = lunchDishArray.filter(function (item) {
                     return Boolean(item.trim()); // Trim whitespace and check for falsy
                 })
-                if (lunchDishArray.length > 3) {
+                $scope.color = 'green';
+                // Check first if any items left after filtering
+                if (lunchDishArray.length === 0) {
+                    showEmptyMessage();
+                } else if (lunchDishArray.length > 3) {
                     $scope.message = 'Too much!';
                 } else {
                     $scope.message = 'Enjoy!';
                 }
-
             }
+        }
+
+        function showEmptyMessage() {
+            $scope.message = 'Please enter data first';
+            $scope.color = 'red';
         }
     }
 
