@@ -9,6 +9,13 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
+.error {
+  width: 25%;
+}
+.btn-narrow {
+  padding: 0 12px;
+  margin: 1px 0;
+}
 .loader {
   display: none;
   margin-left: 5px;
