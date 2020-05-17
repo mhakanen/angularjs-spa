@@ -1,0 +1,7 @@
+<h3>Category: {{$ctrl.categoryTitle}}</h3>
+<div ng-if="!$ctrl.itemList || $ctrl.itemList.length == 0">No items found</div>
+<ol>
+    <li ng-repeat="item in $ctrl.itemList"><strong>{{item.name}}</strong>: {{item.description}}</li>
+</ol>
+<button class="btn btn-primary" ui-sref="home">Home</button>
+<button class="btn btn-primary" ui-sref="categories">Category Listing</button>

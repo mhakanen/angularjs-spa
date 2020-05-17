@@ -1,0 +1,7 @@
+<h3>Menu categories:</h3>
+<ol>
+    <li ng-repeat="category in $ctrl.categoryList">
+        <a ui-sref="items({categoryShortName: category.short_name})">{{category.name}}</a>
+    </li>
+</ol>
+<button class="btn btn-primary" ui-sref="home">Home</button>
