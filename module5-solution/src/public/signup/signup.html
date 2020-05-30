@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <h2 class="col-md-8">Sign up for our newsletter!</h2>
+    </div>
+    <br>
+    <form name="signupForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="fname" class="col-md-2 control-label">First name</label>
+            <div class="col-md-4">
+                <input type="text" id="fname" name="fname" class="form-control" ng-model="signup.firstName" required>
+            </div>
+            <div class="col-md-4" ng-if="signupForm.fname.$error.required && signupForm.fname.$touched">
+                First name is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lname" class="col-md-2 control-label">Last name</label>
+            <div class="col-md-4">
+                <input type="text" id="lname" name="lname" class="form-control" ng-model="signup.lastName" required>
+            </div>
+            <div class="col-md-4" ng-if="signupForm.lname.$error.required && signupForm.lname.$touched">
+                Last name is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-md-2 control-label">Email</label>
+            <div class="col-md-4">
+                <input type="email" id="email" name="email" class="form-control" placeholder="user@email" ng-model="signup.email" required>
+            </div>
+            <div class="col-md-4" ng-if="(signupForm.email.$error.required || signupForm.email.$error.email) && signupForm.email.$touched">
+                Email address in correct form is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="col-md-2 control-label">Phone number</label>
+            <div class="col-md-4">
+                <input type="text" id="phonenbr" name="phonenbr" class="form-control" placeholder="###-###-####"
+                    ng-model="signup.phone" ng-pattern="signup.phoneNbrFormat">
+            </div>
+            <div class="col-md-4" ng-if="signupForm.phonenbr.$error.pattern && signupForm.phonenbr.$touched">
+                Phone number has to be in format ###-###-####
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dish" class="col-md-2 control-label">Your favorite dish</label>
+            <div class="col-md-4">
+                <input type="text" id="dish" name="dish" class="form-control" placeholder="Code of the dish (e.g. A8)"
+                    ng-model="signup.dish" favorite-dish>
+            </div>
+            <div class="col-md-4" ng-if="signupForm.dish.$error.pattern && signupForm.dish.$touched">
+                Looking up the dish...
+            </div>
+            <div class="col-md-4" ng-if="signupForm.dish.$error.favorite">
+                No such menu number exists
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <button type="submit" class="btn btn-success" ng-disabled="signupForm.$invalid" ng-click="signup.signMeUp(); signup.resetForm(signupForm)"
+                    style="background-color: #557c3e;">
+                    Sign up
+                </button>
+                <span ng-if="signup.stored" style="margin-left: 10px;">Your information has been saved</span>
+            </div>
+        </div>
+    </form>
+</div>

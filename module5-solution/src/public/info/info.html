@@ -1,0 +1,26 @@
+<div class="container">
+     <div class="col-md-offset-2 col-md-6" ng-if="user.userStored">
+        <h2>Here's Your Registered Information.</h2>
+    </div>
+    <div class="col-md-offset-2 col-md-6" ng-if="!user.userStored">
+        <h2>Not Signed Up Yet.</h2>
+        <a ui-sref="public.signup" style="color: #f6b319;">Sign up Now!</a>
+    </div>
+  <br>
+    <div class="col-md-offset-2 col-md-8">
+        {{user.firstName}} {{user.lastName}}
+    </div>
+    <div class="col-md-offset-2 col-md-8">
+        {{user.email}}
+    </div>
+    <div class="col-md-offset-2 col-md-8">
+        {{user.phone}}
+    </div>
+    <div ng-if="user.dish" class="col-md-offset-2 col-md-8">
+        Favorite dish: {{user.dish}}
+    </div>
+    <div ng-if="user.dish" class="col-md-offset-2">
+        <menu-item menu-item="user.menuItem"></menu-item>
+    </div>
+
+</div>
